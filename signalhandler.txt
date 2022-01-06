@@ -1,0 +1,24 @@
+//student name:Swathi Doraiswamy Gopal
+//Ilab Machine used:ilab1 
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+void floating_point_exception_handler(int signum){
+  printf("I am slain!\n");
+  int *pt;
+  pt=&signum;
+  pt=pt+51;
+ *pt+=0x6;
+ void *ra = __builtin_return_address(0);    
+}
+int main(){
+  int x=5,y=0,z=0;
+  signal(SIGFPE, floating_point_exception_handler);
+  z=x/y;
+  printf("I live again!\n");
+  return 0;
+}
+
+
+  

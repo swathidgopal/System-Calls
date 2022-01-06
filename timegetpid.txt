@@ -1,0 +1,32 @@
+//student name:Swathi Doraiswamy Gopal
+//Ilab Machine used:ilab1
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/time.h>
+#include <unistd.h>
+#include <assert.h>
+
+long microsec(struct timeval t)
+{
+	return(t.tv_sec*1000000+t.tv_usec);
+}
+int main()
+{
+	int i,j,k;
+	long iterations=1000000;
+	float avgtimesyscall;
+	struct timeval t1, t2;
+	
+	k=gettimeofday(&t1,NULL);assert(k==0);
+	for(i=0;i<iterations;i++)
+	{
+		j=getpid();
+	}
+	k=gettimeofday(&t2,NULL); assert(k==0);
+	avgtimesyscall=(microsec(t2)-microsec(t1))/(iterations*0.1);
+	
+	printf("Sys calls performed: %d\n",iterations);
+	printf("Total Elapsed Time: %d microseconds\n",microsec);
+	printf("Average time per Sys Call: %f microseconds\n",avgtimesyscall);
+ } 
+
